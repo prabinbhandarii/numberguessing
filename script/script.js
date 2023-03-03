@@ -11,21 +11,31 @@ questionMark.style.cssText = `font-size: 5rem; font-family: "Press Start 2P", cu
 
 // Function for check! button
 let val = 20;
+let highScore = 0;
 document.querySelector(".check-btn").addEventListener("click", function () {
   const inputText = Number(document.querySelector("input").value);
 
-  val = val - 1;
-  spanScore.innerHTML = val;
 
   if (inputText === random) {
     questionMark.innerHTML = random;
     message.innerHTML = `Congratulation! You Won`;
+    if (val > highScore) {
+      highScore = val;
+      spanHighScore.textContent = highScore;
+    }
     spanHighScore.innerHTML = val;
     container.style.backgroundColor = "green";
-  } else if (inputText > random) {
+  }else if(!inputText){
+    message.textContent = "No number!!";
+  }
+  else if (inputText > random) {
     message.innerHTML = `Its too High`;
+    val--;
+    spanScore.textContent = val;
   } else {
     message.innerHTML = `Its too Low`;
+    val--;
+    spanScore.textContent = val;
   }
 
   if (val <= 0) {
