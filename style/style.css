@@ -53,13 +53,13 @@ main {
 }
 @media (max-width: 635px) {
   .container {
-    width: auto;
+    width: 22rem;
     overflow-y: hidden;
   }
   .guess-text {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   .right p {
-    font-size: 13px;
+    font-size: 10px;
   }
 }
